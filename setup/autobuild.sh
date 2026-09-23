@@ -47,7 +47,7 @@ function copy_common {
 	cp "$srcDir/armsrc/obj/fullimage.elf" "$dstDir/client"
 	cp "$srcDir/bootrom/obj/bootrom.elf" "$dstDir/client"
 	#Copy recovery
-	cp $srcDir/recovery/{bootrom.bin,fullimage.bin,proxmark3_recovery.bin} "$dstDir/recovery"
+	cp $srcDir/recovery/{bootrom.bin,fullimage.bin,recovery.bin} "$dstDir/recovery"
 	#Copy driver
 	cp "$srcDir/driver/proxmark3.inf" "$dstDir/Windows Driver (not required for Windows 10)"
 }

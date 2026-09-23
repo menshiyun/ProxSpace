@@ -2,7 +2,7 @@
 pm3Dir=/pm3
 copyDir=/builds
 buildDir=/tmp
-mingwDir=/mingw64
+ucrtDir=/ucrt64
 
 function check_requirements {
 	pacman -Q p7zip 1> /dev/null
@@ -40,9 +40,9 @@ function copy_common {
 	mkdir -p "$dstDir/Windows Driver (not required for Windows 10)"
 
 	#Copy required libraries to client/libs
-	ldd "$srcDir/client/proxmark3.exe" | grep "=> /mingw" | awk '{print $3}' | xargs -I '{}' cp -v '{}' "$dstDir/client/libs"
+	ldd "$srcDir/client/proxmark3.exe" | grep "=> /ucrt" | awk '{print $3}' | xargs -I '{}' cp -v '{}' "$dstDir/client/libs"
 	#Copy qt6 platform dll
-	cp "$mingwDir/share/qt6/plugins/platforms/qwindows.dll" "$dstDir/client/libs"
+	cp "$ucrtDir/share/qt6/plugins/platforms/qwindows.dll" "$dstDir/client/libs"
 	#Copy firmware
 	cp "$srcDir/armsrc/obj/fullimage.elf" "$dstDir/client"
 	cp "$srcDir/bootrom/obj/bootrom.elf" "$dstDir/client"

@@ -8,7 +8,7 @@ check_install () {
 
 setup_proxspace ()
 {
-  if [ "$MSYSTEM" == "MINGW64" ]; then	  
+  if [ "$MSYSTEM" == "UCRT64" ]; then	  
 	for pkg in $(grep "^[^#;]" /setup/packages.txt); do
 		check_install $pkg
 	done
